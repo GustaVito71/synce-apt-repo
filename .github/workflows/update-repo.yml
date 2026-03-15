@@ -19,10 +19,16 @@ jobs:
 
       - name: Import GPG key
         run: |
-          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
           mkdir -p ~/.gnupg
-          echo "trust-model always" >> ~/.gnupg/gpg.conf
           chmod 700 ~/.gnupg
+          echo "trust-model always" > ~/.gnupg/gpg.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
+          gpgconf --kill gpg-agent || true
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+          echo "${{ secrets.GPG_PASSPHRASE }}" | gpg --batch --yes --passphrase-fd 0 \
+            --pinentry-mode loopback -u "${{ secrets.GPG_KEY_ID }}" \
+            --sign /dev/null
 
       - name: Add packages to repo
         run: |
