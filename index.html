@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SynCE Legacy — APT Repository</title>
-  <style>
-    body { font-family: monospace; max-width: 860px; margin: 2em auto; padding: 0 1em; background: #1e1e1e; color: #d4d4d4; }
-    h1 { color: #9cdcfe; } h2 { color: #ce9178; border-bottom: 1px solid #444; padding-bottom: .3em; }
-    a { color: #4ec9b0; } code { background: #2d2d2d; padding: .2em .4em; border-radius: 3px; }
-    pre { background: #2d2d2d; padding: 1em; border-radius: 5px; overflow-x: auto; }
-    table { border-collapse: collapse; width: 100%; } td, th { padding: .4em .8em; text-align: left; }
-    th { color: #9cdcfe; border-bottom: 1px solid #444; } tr:hover td { background: #2d2d2d; }
-    .badge { display:inline-block; background:#0e639c; color:#fff; padding:.1em .5em; border-radius:3px; font-size:.85em; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynCE Legacy — APT Repository</title>
+<style>
+body{font-family:monospace;max-width:960px;margin:2em auto;padding:0 1em;background:#1e1e1e;color:#d4d4d4}
+h1{color:#9cdcfe}h2{color:#ce9178;border-bottom:1px solid #444;padding-bottom:.3em}
+a{color:#4ec9b0}code{background:#2d2d2d;padding:.2em .4em;border-radius:3px}
+pre{background:#2d2d2d;padding:1em;border-radius:5px;overflow-x:auto}
+table{border-collapse:collapse;width:100%}td,th{padding:.4em .8em;text-align:left}
+th{color:#9cdcfe;border-bottom:1px solid #444}tr:hover td{background:#2d2d2d}
+.fb{background:#2d2d2d;color:#d4d4d4;border:1px solid #444;padding:.3em .9em;border-radius:4px;cursor:pointer;margin:.2em}
+.fb.active{background:#0e639c;color:#fff;border-color:#0e639c}
+.fb:hover{background:#3e3e3e}
+</style>
 </head>
 <body>
 <h1>SynCE Legacy — APT Repository</h1>
-<p>Puerto del stack SynCE para <span class="badge">Debian 12 Bookworm</span> &nbsp;·&nbsp; Actualizado: 2026-03-15 18:04 UTC</p>
+<p>Puerto del stack SynCE para Debian &nbsp;·&nbsp; Actualizado: 2026-03-15 18:42 UTC</p>
 
 <h2>Configuración</h2>
 <pre># 1. Importar la clave GPG
 wget -qO- https://gustavito71.github.io/synce-apt-repo/public.key | sudo tee /etc/apt/trusted.gpg.d/synce.asc
 
-# 2. Agregar el repositorio
-echo "deb https://gustavito71.github.io/synce-apt-repo bookworm main" | sudo tee /etc/apt/sources.list.d/synce.list
+# 2. Agregar el repositorio (reemplazar CODENAME por bookworm, trixie, etc.)
+echo "deb https://gustavito71.github.io/synce-apt-repo CODENAME main" | sudo tee /etc/apt/sources.list.d/synce.list
 
 # 3. Actualizar e instalar
 sudo apt update
 sudo apt install synce-sync-engine synce-tools synce-dccm python3-rapi2</pre>
 
 <h2>Paquetes disponibles</h2>
+<div style="margin-bottom:.8em"><button class="fb active" data-dist="" onclick="fd(this)">Todas</button>
+<button class="fb" data-dist="bookworm" onclick="fd(this)">Bookworm</button>
+</div>
 <table>
-<tr><th>Paquete</th><th>Versión</th><th>Descripción</th></tr>
-  <tr><td><code>libmimedir-dev</code></td><td>0.5.1-0~bookworm1</td><td>Developer files for libmimedir</td></tr>
-  <tr><td><code>libmimedir0-dbgsym</code></td><td>0.5.1-0~bookworm1</td><td>debug symbols for libmimedir0</td></tr>
-  <tr><td><code>libmimedir0</code></td><td>0.5.1-0~bookworm1</td><td>Library to parse RFC 2425 Directory Information blocks</td></tr>
-  <tr><td><code>librra-dev</code></td><td>0.17-0~bookworm2</td><td>Library for synchronisation with Windows Mobile devices: dev files</td></tr>
-  <tr><td><code>librra-tools-dbgsym</code></td><td>0.17-0~bookworm2</td><td>debug symbols for librra-tools</td></tr>
-  <tr><td><code>librra-tools</code></td><td>0.17-0~bookworm2</td><td>Library for synchronisation with Windows Mobile devices (tools)</td></tr>
-  <tr><td><code>librra0-dbgsym</code></td><td>0.17-0~bookworm2</td><td>debug symbols for librra0</td></tr>
-  <tr><td><code>librra0</code></td><td>0.17-0~bookworm2</td><td>Library for synchronisation with Windows Mobile devices</td></tr>
-  <tr><td><code>librtfcomp-dbg</code></td><td>1.3-0~bookworm1</td><td>Library to read compressed RTF files (debugging symbols)</td></tr>
-  <tr><td><code>librtfcomp-dev</code></td><td>1.3-0~bookworm1</td><td>Library to read compressed RTF files (development files)</td></tr>
-  <tr><td><code>librtfcomp0</code></td><td>1.3-0~bookworm1</td><td>Library to read compressed RTF files</td></tr>
-  <tr><td><code>libsynce0-dbgsym</code></td><td>0.17-0~bookworm8</td><td>debug symbols for libsynce0</td></tr>
-  <tr><td><code>libsynce0-dev</code></td><td>0.17-0~bookworm8</td><td>Common library for SynCE, a tool to sync Windows Mobile devices</td></tr>
-  <tr><td><code>libsynce0</code></td><td>0.17-0~bookworm8</td><td>Helper library for SynCE, a tool to sync Windows Mobile devices</td></tr>
-  <tr><td><code>python3-rapi2-dbgsym</code></td><td>0.17-0~bookworm8</td><td>debug symbols for python3-rapi2</td></tr>
-  <tr><td><code>python3-rapi2</code></td><td>0.17-0~bookworm8</td><td>Python 3 bindings for librapi2 (SynCE RAPI)</td></tr>
-  <tr><td><code>python3-rra-dbgsym</code></td><td>0.17-0~bookworm2</td><td>debug symbols for python3-rra</td></tr>
-  <tr><td><code>python3-rra</code></td><td>0.17-0~bookworm2</td><td>Python 3 bindings for librra (SynCE RRA)</td></tr>
-  <tr><td><code>python3-rtfcomp</code></td><td>1.3-0~bookworm1</td><td>Library to read compressed RTF files (Python 3 bindings)</td></tr>
-  <tr><td><code>synce-dccm-dbgsym</code></td><td>0.17-0~bookworm8</td><td>debug symbols for synce-dccm</td></tr>
-  <tr><td><code>synce-dccm</code></td><td>0.17-0~bookworm8</td><td>Daemon to maintain a connection to Windows Mobile devices</td></tr>
-  <tr><td><code>synce-sync-engine</code></td><td>0.16-0~bookworm2</td><td>Synchronization engine for Windows Mobile devices</td></tr>
-  <tr><td><code>synce-tools-dbgsym</code></td><td>0.17-0~bookworm8</td><td>debug symbols for synce-tools</td></tr>
-  <tr><td><code>synce-tools</code></td><td>0.17-0~bookworm8</td><td>Make RAPI calls to a Window Mobile device, library tools</td></tr>
+<tr><th>Paquete</th><th>Versión</th><th>Distribución</th><th>Descripción</th></tr>
+<tr data-dist="bookworm"><td><code>libmimedir-dev</code></td><td>0.5.1-0~bookworm1</td><td>bookworm</td><td>Developer files for libmimedir</td></tr>
+<tr data-dist="bookworm"><td><code>libmimedir0</code></td><td>0.5.1-0~bookworm1</td><td>bookworm</td><td>Library to parse RFC 2425 Directory Information blocks</td></tr>
+<tr data-dist="bookworm"><td><code>libmimedir0-dbgsym</code></td><td>0.5.1-0~bookworm1</td><td>bookworm</td><td>debug symbols for libmimedir0</td></tr>
+<tr data-dist="bookworm"><td><code>librra-dev</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>Library for synchronisation with Windows Mobile devices: dev files</td></tr>
+<tr data-dist="bookworm"><td><code>librra-tools</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>Library for synchronisation with Windows Mobile devices (tools)</td></tr>
+<tr data-dist="bookworm"><td><code>librra-tools-dbgsym</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>debug symbols for librra-tools</td></tr>
+<tr data-dist="bookworm"><td><code>librra0</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>Library for synchronisation with Windows Mobile devices</td></tr>
+<tr data-dist="bookworm"><td><code>librra0-dbgsym</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>debug symbols for librra0</td></tr>
+<tr data-dist="bookworm"><td><code>librtfcomp-dbg</code></td><td>1.3-0~bookworm1</td><td>bookworm</td><td>Library to read compressed RTF files (debugging symbols)</td></tr>
+<tr data-dist="bookworm"><td><code>librtfcomp-dev</code></td><td>1.3-0~bookworm1</td><td>bookworm</td><td>Library to read compressed RTF files (development files)</td></tr>
+<tr data-dist="bookworm"><td><code>librtfcomp0</code></td><td>1.3-0~bookworm1</td><td>bookworm</td><td>Library to read compressed RTF files</td></tr>
+<tr data-dist="bookworm"><td><code>libsynce0</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>Helper library for SynCE, a tool to sync Windows Mobile devices</td></tr>
+<tr data-dist="bookworm"><td><code>libsynce0-dbgsym</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>debug symbols for libsynce0</td></tr>
+<tr data-dist="bookworm"><td><code>libsynce0-dev</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>Common library for SynCE, a tool to sync Windows Mobile devices</td></tr>
+<tr data-dist="bookworm"><td><code>python3-rapi2</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>Python 3 bindings for librapi2 (SynCE RAPI)</td></tr>
+<tr data-dist="bookworm"><td><code>python3-rapi2-dbgsym</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>debug symbols for python3-rapi2</td></tr>
+<tr data-dist="bookworm"><td><code>python3-rra</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>Python 3 bindings for librra (SynCE RRA)</td></tr>
+<tr data-dist="bookworm"><td><code>python3-rra-dbgsym</code></td><td>0.17-0~bookworm2</td><td>bookworm</td><td>debug symbols for python3-rra</td></tr>
+<tr data-dist="bookworm"><td><code>python3-rtfcomp</code></td><td>1.3-0~bookworm1</td><td>bookworm</td><td>Library to read compressed RTF files (Python 3 bindings)</td></tr>
+<tr data-dist="bookworm"><td><code>synce-dccm</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>Daemon to maintain a connection to Windows Mobile devices</td></tr>
+<tr data-dist="bookworm"><td><code>synce-dccm-dbgsym</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>debug symbols for synce-dccm</td></tr>
+<tr data-dist="bookworm"><td><code>synce-sync-engine</code></td><td>0.16-0~bookworm2</td><td>bookworm</td><td>Synchronization engine for Windows Mobile devices</td></tr>
+<tr data-dist="bookworm"><td><code>synce-tools</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>Make RAPI calls to a Window Mobile device, library tools</td></tr>
+<tr data-dist="bookworm"><td><code>synce-tools-dbgsym</code></td><td>0.17-0~bookworm8</td><td>bookworm</td><td>debug symbols for synce-tools</td></tr>
 </table>
 
 <h2>Archivos</h2>
 <ul>
-  <li><a href="dists/bookworm/Release">dists/bookworm/Release</a></li>
-  <li><a href="dists/bookworm/InRelease">dists/bookworm/InRelease</a></li>
   <li><a href="public.key">public.key</a> — Clave GPG pública</li>
+  <li><a href="dists/bookworm/InRelease">dists/bookworm/InRelease</a></li>
 </ul>
 
 <p><a href="https://github.com/GustaVito71/SynCE-legacy">← Repositorio fuente en GitHub</a></p>
+
+<script>
+function fd(btn){
+  const d=btn.dataset.dist;
+  document.querySelectorAll('tr[data-dist]').forEach(r=>{r.style.display=(!d||r.dataset.dist===d)?'':'none'});
+  document.querySelectorAll('.fb').forEach(b=>{b.classList.toggle('active',b.dataset.dist===d)});
+}
+</script>
+
 </body></html>
