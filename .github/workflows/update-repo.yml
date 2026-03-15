@@ -45,72 +45,116 @@ jobs:
           gpg --armor --export "${{ secrets.GPG_KEY_ID }}" > public.key
 
       - name: Generate index.html
-        run: |
-          REPO_URL="https://gustavito71.github.io/synce-apt-repo"
-          DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
-          cat > index.html <<EOF
-          <!DOCTYPE html>
-          <html lang="es">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>SynCE Legacy — APT Repository</title>
-            <style>
-              body { font-family: monospace; max-width: 860px; margin: 2em auto; padding: 0 1em; background: #1e1e1e; color: #d4d4d4; }
-              h1 { color: #9cdcfe; } h2 { color: #ce9178; border-bottom: 1px solid #444; padding-bottom: .3em; }
-              a { color: #4ec9b0; } code { background: #2d2d2d; padding: .2em .4em; border-radius: 3px; }
-              pre { background: #2d2d2d; padding: 1em; border-radius: 5px; overflow-x: auto; }
-              table { border-collapse: collapse; width: 100%; } td, th { padding: .4em .8em; text-align: left; }
-              th { color: #9cdcfe; border-bottom: 1px solid #444; } tr:hover td { background: #2d2d2d; }
-              .badge { display:inline-block; background:#0e639c; color:#fff; padding:.1em .5em; border-radius:3px; font-size:.85em; }
-            </style>
-          </head>
-          <body>
-          <h1>SynCE Legacy — APT Repository</h1>
-          <p>Puerto del stack SynCE para <span class="badge">Debian 12 Bookworm</span> &nbsp;·&nbsp; Actualizado: ${DATE}</p>
+        env:
+          GOATCOUNTER_SITE: ${{ vars.GOATCOUNTER_SITE }}
+        run: python3 << 'PYEOF'
+import os, glob, datetime
 
-          <h2>Configuración</h2>
-          <pre># 1. Importar la clave GPG
-          wget -qO- ${REPO_URL}/public.key | sudo tee /etc/apt/trusted.gpg.d/synce.asc
+REPO_URL = "https://gustavito71.github.io/synce-apt-repo"
+DATE = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+GC = os.environ.get('GOATCOUNTER_SITE', '').strip()
 
-          # 2. Agregar el repositorio
-          echo "deb ${REPO_URL} bookworm main" | sudo tee /etc/apt/sources.list.d/synce.list
+# Parse packages from all distributions
+packages = []
+seen = set()
+for pkgfile in sorted(glob.glob('dists/*/main/binary-*/Packages')):
+    codename = pkgfile.split('/')[1]
+    pkg = ver = desc = ''
+    with open(pkgfile) as f:
+        for line in f:
+            line = line.rstrip('\n')
+            if line.startswith('Package: '):
+                pkg = line[9:]
+            elif line.startswith('Version: '):
+                ver = line[9:]
+            elif line.startswith('Description: '):
+                desc = line[13:]
+            elif line == '':
+                key = (codename, pkg)
+                if pkg and key not in seen:
+                    seen.add(key)
+                    packages.append((codename, pkg, ver, desc))
+                pkg = ver = desc = ''
+        if pkg and (codename, pkg) not in seen:
+            packages.append((codename, pkg, ver, desc))
 
-          # 3. Actualizar e instalar
-          sudo apt update
-          sudo apt install synce-sync-engine synce-tools synce-dccm python3-rapi2</pre>
+packages.sort(key=lambda x: (x[0], x[1]))
+dists = sorted(set(p[0] for p in packages))
 
-          <h2>Paquetes disponibles</h2>
-          <table>
-          <tr><th>Paquete</th><th>Versión</th><th>Descripción</th></tr>
-          EOF
+# Filter buttons
+btns = '<button class="fb active" data-dist="" onclick="fd(this)">Todas</button>\n'
+for d in dists:
+    btns += f'<button class="fb" data-dist="{d}" onclick="fd(this)">{d.capitalize()}</button>\n'
 
-          awk '
-            /^Package:/ { pkg=$2 }
-            /^Version:/ { ver=$2 }
-            /^Description:/ { desc=substr($0, index($0,$2)); next }
-            /^$/ { if (pkg) print pkg "|" ver "|" desc; pkg=""; ver=""; desc="" }
-            END { if (pkg) print pkg "|" ver "|" desc }
-          ' dists/bookworm/main/binary-amd64/Packages \
-            dists/bookworm/main/binary-i386/Packages \
-            dists/bookworm/main/binary-all/Packages 2>/dev/null \
-          | sort | while IFS='|' read pkg ver desc; do
-            echo "  <tr><td><code>${pkg}</code></td><td>${ver}</td><td>${desc}</td></tr>" >> index.html
-          done
+# Table rows
+rows = ''
+for codename, pkg, ver, desc in packages:
+    rows += f'<tr data-dist="{codename}"><td><code>{pkg}</code></td><td>{ver}</td><td>{codename}</td><td>{desc}</td></tr>\n'
 
-          cat >> index.html <<EOF
-          </table>
+# GoatCounter
+gc_script = f'<script data-goatcounter="https://{GC}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>' if GC else ''
 
-          <h2>Archivos</h2>
-          <ul>
-            <li><a href="dists/bookworm/Release">dists/bookworm/Release</a></li>
-            <li><a href="dists/bookworm/InRelease">dists/bookworm/InRelease</a></li>
-            <li><a href="public.key">public.key</a> — Clave GPG pública</li>
-          </ul>
+html = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynCE Legacy — APT Repository</title>
+<style>
+body{{font-family:monospace;max-width:960px;margin:2em auto;padding:0 1em;background:#1e1e1e;color:#d4d4d4}}
+h1{{color:#9cdcfe}}h2{{color:#ce9178;border-bottom:1px solid #444;padding-bottom:.3em}}
+a{{color:#4ec9b0}}code{{background:#2d2d2d;padding:.2em .4em;border-radius:3px}}
+pre{{background:#2d2d2d;padding:1em;border-radius:5px;overflow-x:auto}}
+table{{border-collapse:collapse;width:100%}}td,th{{padding:.4em .8em;text-align:left}}
+th{{color:#9cdcfe;border-bottom:1px solid #444}}tr:hover td{{background:#2d2d2d}}
+.fb{{background:#2d2d2d;color:#d4d4d4;border:1px solid #444;padding:.3em .9em;border-radius:4px;cursor:pointer;margin:.2em}}
+.fb.active{{background:#0e639c;color:#fff;border-color:#0e639c}}
+.fb:hover{{background:#3e3e3e}}
+</style>
+</head>
+<body>
+<h1>SynCE Legacy — APT Repository</h1>
+<p>Puerto del stack SynCE para Debian &nbsp;·&nbsp; Actualizado: {DATE}</p>
 
-          <p><a href="https://github.com/GustaVito71/SynCE-legacy">← Repositorio fuente en GitHub</a></p>
-          </body></html>
-          EOF
+<h2>Configuración</h2>
+<pre># 1. Importar la clave GPG
+wget -qO- {REPO_URL}/public.key | sudo tee /etc/apt/trusted.gpg.d/synce.asc
+
+# 2. Agregar el repositorio (reemplazar CODENAME por bookworm, trixie, etc.)
+echo "deb {REPO_URL} CODENAME main" | sudo tee /etc/apt/sources.list.d/synce.list
+
+# 3. Actualizar e instalar
+sudo apt update
+sudo apt install synce-sync-engine synce-tools synce-dccm python3-rapi2</pre>
+
+<h2>Paquetes disponibles</h2>
+<div style="margin-bottom:.8em">{btns}</div>
+<table>
+<tr><th>Paquete</th><th>Versión</th><th>Distribución</th><th>Descripción</th></tr>
+{rows}</table>
+
+<h2>Archivos</h2>
+<ul>
+  <li><a href="public.key">public.key</a> — Clave GPG pública</li>
+  <li><a href="dists/bookworm/InRelease">dists/bookworm/InRelease</a></li>
+</ul>
+
+<p><a href="https://github.com/GustaVito71/SynCE-legacy">← Repositorio fuente en GitHub</a></p>
+
+<script>
+function fd(btn){{
+  const d=btn.dataset.dist;
+  document.querySelectorAll('tr[data-dist]').forEach(r=>{{r.style.display=(!d||r.dataset.dist===d)?'':'none'}});
+  document.querySelectorAll('.fb').forEach(b=>{{b.classList.toggle('active',b.dataset.dist===d)}});
+}}
+</script>
+{gc_script}
+</body></html>"""
+
+with open('index.html','w') as f:
+    f.write(html)
+print(f"index.html generated: {len(packages)} packages, {len(dists)} distributions")
+PYEOF
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
