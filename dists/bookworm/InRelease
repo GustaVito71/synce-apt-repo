@@ -1,0 +1,38 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: GustaVito71
+Label: SynCE Legacy
+Codename: bookworm
+Date: Sun, 15 Mar 2026 17:34:10 UTC
+Architectures: amd64
+Components: main
+Description: SynCE Legacy - Port to Debian 12 Bookworm
+MD5Sum:
+ b1fe42e3b1b9d3a3b834fd7a580732ae 21125 main/binary-amd64/Packages
+ fa01d82c3a523e74831355fe67eb10dd 5996 main/binary-amd64/Packages.gz
+ f73bae99e7fba728d7953625cc68ee64 131 main/binary-amd64/Release
+SHA1:
+ 0480938aba2eb6eb2f55ad6cad232c1f7d292bf2 21125 main/binary-amd64/Packages
+ 62599de0c6e54dc8d675a5f65cbad420d91ac603 5996 main/binary-amd64/Packages.gz
+ fd7cb92f8f6be4a3601567c41243509caeba0914 131 main/binary-amd64/Release
+SHA256:
+ a78dd4a3fb2598809c1a99dc8b25caeab25f01fea9753542369c14e585b47671 21125 main/binary-amd64/Packages
+ 00f24c8c94a01c3f193a179af7e2d41ba8f8507a900a33a0e3158553c526a7d2 5996 main/binary-amd64/Packages.gz
+ f8393d2f1d7d61004ff046bc22a4842c83f0ae04c3c3572334f5b1e71217e584 131 main/binary-amd64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEO5yGXt5T18VKDKk8R3n75LoYZVAFAmm27ZIACgkQR3n75LoY
+ZVAp/Q/+NSo9Y7LdxJykElgYeelyfWAt+E46WoCmnCyKtKF9umCfR7JREPKVPyu7
+DmQ4oB8EsU23YNFnb3fAKxb5QvxLoTXZM+9/P4KzsQmbYE+twLioU0QGSQtYbUQ8
+IM2uCwXVyNf3qsmuZkU278g1959+mBp3e0v11eN8yI3A3qc7Qd808oKCkvrlhLDT
+nIMZrXmXlD6lSVp17+OUPEsrwIzIxrHycHszZhdqn/KWrGuPP6LFzuUbWReKNyJa
+S4pX7mSA7i47UYLGjY477AUsSumW5P56iXGRdz24TBkpeI9YwERiKhllUkAToDXp
+WbIDfCByx6zWdJxVyCuSl4VZ/JlPC7DDbnlKfrWRkpEbeQMAlmlN2NJmO6Z0mHkU
+gTpZB0D/4zMcQ3ZyJk5WMMJaKy0N5zyMORWsZQlL+fnC6gXqkncjx3SedZi3JtAE
+68dRbzMCBuNlESpqEq9FnoGIc6sPhmwxXO1c41B4gZsE0RfvASPf4i5/tIBovrEI
+UokIdOJ70jMsmgxW2CBBJBbDrukdxXEAw3w5Adj2ze+ZoECCm8IMrFcU39uvGZHA
+S1+/unrkIa/ZK58IafyNZ9apFUVm8KjCWgNQhzUdiKL/QfNK78OGh+NpljD+cpwd
+q+Xisyg/nRXvBRHUdJaPyOXG9jaYoY8t6dYlSE1al/MWflDqvqI=
+=Gnp/
+-----END PGP SIGNATURE-----
