@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynCE Legacy — APT Repository</title>
+  <style>
+    body { font-family: monospace; max-width: 860px; margin: 2em auto; padding: 0 1em; background: #1e1e1e; color: #d4d4d4; }
+    h1 { color: #9cdcfe; } h2 { color: #ce9178; border-bottom: 1px solid #444; padding-bottom: .3em; }
+    a { color: #4ec9b0; } code { background: #2d2d2d; padding: .2em .4em; border-radius: 3px; }
+    pre { background: #2d2d2d; padding: 1em; border-radius: 5px; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; } td, th { padding: .4em .8em; text-align: left; }
+    th { color: #9cdcfe; border-bottom: 1px solid #444; } tr:hover td { background: #2d2d2d; }
+    .badge { display:inline-block; background:#0e639c; color:#fff; padding:.1em .5em; border-radius:3px; font-size:.85em; }
+  </style>
+</head>
+<body>
+<h1>SynCE Legacy — APT Repository</h1>
+<p>Puerto del stack SynCE para <span class="badge">Debian 12 Bookworm</span> &nbsp;·&nbsp; Actualizado: 2026-03-15 17:55 UTC</p>
+
+<h2>Configuración</h2>
+<pre># 1. Importar la clave GPG
+wget -qO- https://gustavito71.github.io/synce-apt-repo/public.key | sudo tee /etc/apt/trusted.gpg.d/synce.asc
+
+# 2. Agregar el repositorio
+echo "deb https://gustavito71.github.io/synce-apt-repo bookworm main" | sudo tee /etc/apt/sources.list.d/synce.list
+
+# 3. Actualizar e instalar
+sudo apt update
+sudo apt install synce-sync-engine synce-tools synce-dccm python3-rapi2</pre>
+
+<h2>Paquetes disponibles</h2>
+<table>
+<tr><th>Paquete</th><th>Versión</th><th>Descripción</th></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+  <tr><td><code></code></td><td></td><td></td></tr>
+</table>
+
+<h2>Archivos</h2>
+<ul>
+  <li><a href="dists/bookworm/Release">dists/bookworm/Release</a></li>
+  <li><a href="dists/bookworm/InRelease">dists/bookworm/InRelease</a></li>
+  <li><a href="public.key">public.key</a> — Clave GPG pública</li>
+</ul>
+
+<p><a href="https://github.com/GustaVito71/SynCE-legacy">← Repositorio fuente en GitHub</a></p>
+</body></html>
