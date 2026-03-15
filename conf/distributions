@@ -1,0 +1,7 @@
+Origin: GustaVito71
+Label: SynCE Legacy
+Codename: bookworm
+Architectures: amd64
+Components: main
+Description: SynCE Legacy - Port to Debian 12 Bookworm
+SignWith: yes
