@@ -19,8 +19,9 @@ jobs:
       - name: Import GPG key
         run: |
           echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
-          KEY_ID=$(echo "${{ secrets.GPG_KEY_ID }}" | tr -d '[:space:]')
-          echo "${KEY_ID}:6:" | gpg --import-ownertrust
+          mkdir -p ~/.gnupg
+          echo "trust-model always" >> ~/.gnupg/gpg.conf
+          chmod 700 ~/.gnupg
 
       - name: Add packages to repo
         run: |
