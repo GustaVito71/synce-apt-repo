@@ -85,8 +85,8 @@ jobs:
           <tr><th>Paquete</th><th>Versión</th><th>Descripción</th></tr>
           EOF
 
-          reprepro -b . list bookworm | sort | while read codename comp arch pkg ver; do
-            echo "  <tr><td><code>${pkg}</code></td><td>${ver}</td><td></td></tr>" >> index.html
+          reprepro -b . list bookworm | sort | awk '{print $2, $3}' | while read pkg ver; do
+            echo "  <tr><td><code>${pkg}</code></td><td>${ver}</td></tr>" >> index.html
           done
 
           cat >> index.html <<EOF
