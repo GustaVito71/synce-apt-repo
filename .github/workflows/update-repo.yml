@@ -85,8 +85,17 @@ jobs:
           <tr><th>Paquete</th><th>Versión</th><th>Descripción</th></tr>
           EOF
 
-          reprepro -b . list bookworm | sort | awk '{print $2, $3}' | while read pkg ver; do
-            echo "  <tr><td><code>${pkg}</code></td><td>${ver}</td></tr>" >> index.html
+          awk '
+            /^Package:/ { pkg=$2 }
+            /^Version:/ { ver=$2 }
+            /^Description:/ { desc=substr($0, index($0,$2)); next }
+            /^$/ { if (pkg) print pkg "|" ver "|" desc; pkg=""; ver=""; desc="" }
+            END { if (pkg) print pkg "|" ver "|" desc }
+          ' dists/bookworm/main/binary-amd64/Packages \
+            dists/bookworm/main/binary-i386/Packages \
+            dists/bookworm/main/binary-all/Packages 2>/dev/null \
+          | sort | while IFS='|' read pkg ver desc; do
+            echo "  <tr><td><code>${pkg}</code></td><td>${ver}</td><td>${desc}</td></tr>" >> index.html
           done
 
           cat >> index.html <<EOF
