@@ -26,9 +26,10 @@ jobs:
           echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
           gpgconf --kill gpg-agent || true
           echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
-          echo "${{ secrets.GPG_PASSPHRASE }}" | gpg --batch --yes --passphrase-fd 0 \
+          echo "test" | gpg --batch --yes \
+            --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
             --pinentry-mode loopback -u "${{ secrets.GPG_KEY_ID }}" \
-            --sign /dev/null
+            --sign --output /tmp/gpgtest -
 
       - name: Add packages to repo
         run: |
