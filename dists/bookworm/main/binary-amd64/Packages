@@ -3,16 +3,16 @@ Source: libmimedir
 Version: 0.5.1-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 17
+Installed-Size: 18
 Depends: libmimedir0 (= 0.5.1-0~bookworm1)
 Homepage: http://sourceforge.net/projects/libmimedir
 Priority: optional
 Section: libdevel
 Filename: pool/main/libm/libmimedir/libmimedir-dev_0.5.1-0~bookworm1_amd64.deb
-Size: 3968
-SHA256: 01ccb6e157f3a54ac41764741d8b87338753a2ebc7f196d21b1fac6165a6b1c9
-SHA1: f5766ac7fe0977998af149116b5bae2acee14d5f
-MD5sum: cfb81734ec831caf5ca84f80213dacd8
+Size: 4424
+SHA256: fae9caa08ecad642e9b1958beb48e26f350406ccf4918643dc92f2423625c45f
+SHA1: 3c7096615d194bce864aa05d4b4b273b3eca440e
+MD5sum: 2591dc6c85d2fafd7393ace3cc5f904f
 Description: Developer files for libmimedir
  RFC 2425 defines a MIME Content-Type for Directory Information.
  .
@@ -23,7 +23,7 @@ Source: libmimedir
 Version: 0.5.1-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 54
+Installed-Size: 55
 Depends: libc6 (>= 2.14)
 Conflicts: libmimedir
 Replaces: libmimedir
@@ -32,10 +32,10 @@ Homepage: http://sourceforge.net/projects/libmimedir
 Priority: optional
 Section: libs
 Filename: pool/main/libm/libmimedir/libmimedir0_0.5.1-0~bookworm1_amd64.deb
-Size: 15496
-SHA256: 518c3566df8ef1990e054af5a55d4b7e9602901f4585312111985d8347faa591
-SHA1: 9a59433d2f140994da4782ba98018173987bb0fb
-MD5sum: ae0bed2f20acb9e2354c8c17e6f1545f
+Size: 15928
+SHA256: 6b120878bb166ae87a7060efeb35bf04d82f7c3ba6236e86ca5985b22c8fcb18
+SHA1: b24e1e0f2c23815015289965a3bc8eb1303e1378
+MD5sum: 7e73b610d4ef1207ffe82b37ce6dd9c6
 Description: Library to parse RFC 2425 Directory Information blocks
  RFC 2425 defines a MIME Content-Type for Directory Information.
  This library contains necessary methods to parse information blocks arranged
@@ -52,10 +52,10 @@ Depends: libmimedir0 (= 0.5.1-0~bookworm1)
 Priority: optional
 Section: debug
 Filename: pool/main/libm/libmimedir/libmimedir0-dbgsym_0.5.1-0~bookworm1_amd64.deb
-Size: 26212
-SHA256: a0a342205594202214340948b753bbcec310fa3c93d21ad8300ab53333730905
-SHA1: 811490ef7be71759555be5bafdb6a5c41702078e
-MD5sum: 466aa0acf29db2955087ae5bac31b3ad
+Size: 26204
+SHA256: 571e2e30fb27809337e030aab37cf5f67fa35ef41341e60685c5bfcf03501e91
+SHA1: d8a026bd54bd0225858634ae1a4fb853f3f62779
+MD5sum: be0155126033be44660c91f6b0c86f58
 Description: debug symbols for libmimedir0
 Build-Ids: beee08190a46f7f8c1f78f7fc1e7d094d8c68c73
 
@@ -73,10 +73,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libdevel
 Filename: pool/main/libr/librra/librra-dev_0.17-0~bookworm2_amd64.deb
-Size: 78980
-SHA256: bdb8d9daf7d4c93a841d108ccb77cf063ae17dca2d0013ecf245e4714ad69643
-SHA1: 0d546da0412a3d370233e06febadfc8d5f368461
-MD5sum: 25c97b69310c5f64d0e1fa16261f8dfb
+Size: 78956
+SHA256: 6949fdd6506b7fce081ea50768ddacffa698999a6f1960914bd9ef65fe631c5b
+SHA1: a9898121b8c9da500765ee15772123da9cae7a1e
+MD5sum: fe36fabb70a9d801a1bf2ad1ea234852
 Description: Library for synchronisation with Windows Mobile devices: dev files
  rra provides the necessary low level magic to synchronise intelligently
  with Windows Mobile devices, allowing you to tell what's been
@@ -100,10 +100,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libs
 Filename: pool/main/libr/librra/librra-tools_0.17-0~bookworm2_amd64.deb
-Size: 31352
-SHA256: 8203428a8623cb1c86c0878e73c9728f6e3367b555393998ecb20aefeefdba0c
-SHA1: 93357566e296595957f795a7b566374a9fb049e3
-MD5sum: e3a4e6a8937d2176f7276dbdb0101acc
+Size: 31336
+SHA256: d42656ce5bd8cc06a0e6160a6fd7365a29e61bc39f86c79d6fedaf3fdfc0518f
+SHA1: 19ad1536fdc77e3055d6e00330818376cf1fa757
+MD5sum: 4882250587a7e460d81f467db3f5cd02
 Description: Library for synchronisation with Windows Mobile devices (tools)
  rra provides the necessary low level magic to synchronise intelligently
  with Windows Mobile devices, allowing you to tell what's been
@@ -142,10 +142,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libs
 Filename: pool/main/libr/librra/librra0_0.17-0~bookworm2_amd64.deb
-Size: 65076
-SHA256: a890fd5ba26694218ea0ed79a53393dfdf90dc1a70775453f0bd6f3988286227
-SHA1: 30322418535ec63ba155430b6f0b8fbc2f044d4d
-MD5sum: 4e402a363df80ea7f2c7b5a68f58eaeb
+Size: 65064
+SHA256: c09eefb6219a53e48571214cd30d217e8ac428d7f8f295164f963b19fbad9560
+SHA1: 00db36dc7bfcd9ae6616619ad24b4d02e9514441
+MD5sum: ed368b3aeac9d90b1f9fc3f050c8c4d1
 Description: Library for synchronisation with Windows Mobile devices
  rra provides the necessary low level magic to synchronise intelligently
  with Windows Mobile devices, allowing you to tell what's been
@@ -178,38 +178,38 @@ Source: librtfcomp
 Version: 1.3-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 115
+Installed-Size: 117
 Depends: librtfcomp0 (= 1.3-0~bookworm1)
 Homepage: http://www.synce.org/
 Priority: optional
 Section: debug
 Filename: pool/main/libr/librtfcomp/librtfcomp-dbg_1.3-0~bookworm1_amd64.deb
-Size: 87128
-SHA256: 2d1f5dd5f1a0f1b4eafc393a298424891baecf0d74072b42569c58fd69245b4a
-SHA1: ca2f6850e46b277fabd3b474199f67bd2a51dff8
-MD5sum: 41d9c1efcfc7d58470c6a513dfef48eb
+Size: 88560
+SHA256: 3eabb1c4e17212a25fc1e54468d1ecfe848df05c9100894c0ddeeba8cfa709a4
+SHA1: 3935864aaa7fac44f1ca7b9532bd45d0ad34e4b6
+MD5sum: c77304a6c34859c8d7ca5a473f901c1c
 Description: Library to read compressed RTF files (debugging symbols)
  Can decompress and recompress compressed RTF and convert from
  UTF8 to RTF for use in things like the AirSync protocols.
  .
  This package contains the debugging symbols for the library.
-Build-Ids: 0877a2b841c93a088c5df0b9f9e9de7c49412325 5d5474c8d66f395ccc5173d52a04dd65526c146c
+Build-Ids: 194b8e5a579258a0cefff846c8000ee5bb6a84ba 5d5474c8d66f395ccc5173d52a04dd65526c146c
 
 Package: librtfcomp-dev
 Source: librtfcomp
 Version: 1.3-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 43
+Installed-Size: 44
 Depends: librtfcomp0 (= 1.3-0~bookworm1)
 Homepage: http://www.synce.org/
 Priority: optional
 Section: libdevel
 Filename: pool/main/libr/librtfcomp/librtfcomp-dev_1.3-0~bookworm1_amd64.deb
-Size: 11896
-SHA256: 2c33128e41460c08407f7a65f6b9aed0b601f26673f9676331a96bcb94589d0c
-SHA1: c790dfda0ed4ce9ff235e7cb8af04c3ee603fb0c
-MD5sum: 909d976c910a458bc8638fa96e0546ee
+Size: 12592
+SHA256: 86a441f936ea8a078fd4454626bd0c844458da42ca7513e9970440ed023c8c17
+SHA1: e2d14320907e2250acf9c6e9c0e8ce481cd457f0
+MD5sum: cd8bac6ebaa0997764764382e3c3bcdc
 Description: Library to read compressed RTF files (development files)
  Can decompress and recompress compressed RTF and convert from
  UTF8 to RTF for use in things like the AirSync protocols.
@@ -221,16 +221,16 @@ Source: librtfcomp
 Version: 1.3-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 37
+Installed-Size: 38
 Depends: libc6 (>= 2.14)
 Homepage: http://www.synce.org/
 Priority: optional
 Section: libs
 Filename: pool/main/libr/librtfcomp/librtfcomp0_1.3-0~bookworm1_amd64.deb
-Size: 10776
-SHA256: 3a26b915251277e1dc4669e2c3c047044a4196466a9ded05f4291241481d25f9
-SHA1: 4b67dd8c11cfdbdad2fbcb3722f27c0a26e175d5
-MD5sum: 89edc16aaff73d0f9dc7ea8c98d600d7
+Size: 11468
+SHA256: d32fad68f8d92a56363270bdb70cca111607052572aff501b70e77e5c0adbf46
+SHA1: aa25efe2e11774ec51a857caff63edc6edf68b8b
+MD5sum: d4f5e2909b5160090d1bfbce19f0964d
 Description: Library to read compressed RTF files
  Can decompress and recompress compressed RTF and convert from
  UTF8 to RTF for use in things like the AirSync protocols.
@@ -249,10 +249,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libs
 Filename: pool/main/s/synce-core/libsynce0_0.17-0~bookworm8_amd64.deb
-Size: 66664
-SHA256: 01760dede271cbb4242d7260bd31b783fd5ab8e5a47806baf4b5d531b8f7cdda
-SHA1: c98968a7bc6911c740c8263431f5d8391575d06f
-MD5sum: 7da62fcfe61bb08ba6efc8f928dd587c
+Size: 66648
+SHA256: 468f0b216be3e983ffb6d8f937088a84bdbb5cd6c88086042af7e8ca3a512730
+SHA1: a70b786305682b53070608bf61b47e5dc96312eb
+MD5sum: 8de5f83f7d85569fae4dbc64f84ad1cc
 Description: Helper library for SynCE, a tool to sync Windows Mobile devices
  The purpose of the SynCE project is to provide a means of communication with
  a Windows Mobile, or Windows CE, device from a computer running Linux,
@@ -294,10 +294,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libdevel
 Filename: pool/main/s/synce-core/libsynce0-dev_0.17-0~bookworm8_amd64.deb
-Size: 108216
-SHA256: 2d91045deab6c400a66117e115d1d4a972be11f24791afc75d0642a088ea58e0
-SHA1: 7ce64e25a310ac08308e12404fcc12cff033df7f
-MD5sum: 31368e4d891289d5e3f09a4c1b6870b5
+Size: 108200
+SHA256: 1487a441bb654854174013ab5e36439aa58b9e6586c842a44993ee8bce515b20
+SHA1: e52c2892e17753d45451718ffb74f0fa9e1280f8
+MD5sum: 1c3f2127b2682a0e87e74cfad4d1a7f1
 Description: Common library for SynCE, a tool to sync Windows Mobile devices
  The purpose of the SynCE project is to provide a means of communication with
  a Windows Mobile, or Windows CE, device from a computer running Linux,
@@ -320,10 +320,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: python
 Filename: pool/main/s/synce-core/python3-rapi2_0.17-0~bookworm8_amd64.deb
-Size: 94560
-SHA256: 16026b2b83f32dd40b99d8161b90964515d9259b7186dce5a44b37e5a41f8833
-SHA1: f6af5a553eb2ce556615c9a29d39423d0de163bc
-MD5sum: f37f7dbf4e5baac66304b34775dffcd4
+Size: 94548
+SHA256: c5ae846b961d561e19b005070937ac1fad9a301b1672318b56498bd999b7afe9
+SHA1: ba299ca745d1820c7f4aa847392edb024c6ed929
+MD5sum: b57aa243d2564bd7b0b49c8171136985
 Description: Python 3 bindings for librapi2 (SynCE RAPI)
  The purpose of the SynCE project is to provide a means of communication with
  a Windows Mobile, or Windows CE, device from a computer running Linux,
@@ -361,10 +361,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: python
 Filename: pool/main/libr/librra/python3-rra_0.17-0~bookworm2_amd64.deb
-Size: 51768
-SHA256: acd3296fec21c0165881af9c30c9e94f300ce60b3e8b0e7021162b3b5ad93a6b
-SHA1: 5448adb835e807548b9576b7e1e85d9c29b6cf14
-MD5sum: df253de79430753c125e89dcdd57e33b
+Size: 51752
+SHA256: 7fa2ed4dbe3fe69d1d26758a7ab15b6d278ea127774f15c1ba11002204902d6e
+SHA1: 7d723c6428c7cf436d82085b2838214fcba7bec3
+MD5sum: fd9604ff3e3ed9b29a496994fe45032a
 Description: Python 3 bindings for librra (SynCE RRA)
  rra provides the necessary low level magic to synchronise intelligently
  with Windows Mobile devices.
@@ -395,16 +395,16 @@ Source: librtfcomp
 Version: 1.3-0~bookworm1
 Architecture: amd64
 Maintainer: Gustavo Perez Reyes <ghreyes71@gmail.com>
-Installed-Size: 68
+Installed-Size: 69
 Depends: libc6 (>= 2.4), librtfcomp0 (>= 1.3-0~bookworm1), python3 (<< 3.12), python3 (>= 3.11~)
 Homepage: http://www.synce.org/
 Priority: optional
 Section: python
 Filename: pool/main/libr/librtfcomp/python3-rtfcomp_1.3-0~bookworm1_amd64.deb
-Size: 19300
-SHA256: 9ee5e11464776c1049f94d0e3b6ff0c8eea22f2e4c9c5cbff107de8af50158fa
-SHA1: 9e2e028d4fd4ed627586cb2e45d32fef0552ceba
-MD5sum: 38d260ea56d05941e074ceb90e33a74d
+Size: 20144
+SHA256: 0a05d5b6166fe3c5bbeb4194a9cb2f16d2d065b06111ba1843c425a42bc0cbe1
+SHA1: b80fcf27af7aea93e13966f9ea465fa244178b69
+MD5sum: e7e9a0cd755ab71a9adccf4cd1ef4cec
 Description: Library to read compressed RTF files (Python 3 bindings)
  Can decompress and recompress compressed RTF and convert from
  UTF8 to RTF for use in things like the AirSync protocols.
@@ -425,10 +425,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: libs
 Filename: pool/main/s/synce-core/synce-dccm_0.17-0~bookworm8_amd64.deb
-Size: 46784
-SHA256: e87d69288c2134c9d7b0f3b36cfc62b31910cbba1b50dae11cd21294d13fac1e
-SHA1: b0045c91d0c58c90220a8a76b369fad0dd915f3d
-MD5sum: b5975878d24dcd22f56408fef073d090
+Size: 46772
+SHA256: 1fc2a33ce0f386aab7672feea806424eb50ddd51a68c4653a93acb56f5540fd0
+SHA1: 1e8e30e5e3962a019742ac9b30faa4ce96b7d05f
+MD5sum: 88aaac6694b877f5d3c723aa4810f9ff
 Description: Daemon to maintain a connection to Windows Mobile devices
  synce-dccm is a udev callout infrastructure and dccm implementation for
  Windows Mobile devices. It responds to keep alives and provides other
@@ -461,10 +461,10 @@ Depends: python3:any, synce-dccm, python3-gi, python3-dbus, python3-dateutil, py
 Priority: optional
 Section: utils
 Filename: pool/main/s/synce-sync-engine/synce-sync-engine_0.16-0~bookworm2_all.deb
-Size: 111124
-SHA256: 184267db5bc40b4a1cfac38ecb5f3d1e0c2edc9e1da5985464cc3156fecd2445
-SHA1: fd663dba797d0d214fc12103d097652d13ceddd1
-MD5sum: 9c823fc2c6c6825f437dfeab773a95b6
+Size: 111004
+SHA256: b7c79ccfce6de7e84762ea27c4e6263d21345720dccabdcef9e0e5e7b4cf4782
+SHA1: a3d0ccca5768742578a9aa2fef376f0f472d802c
+MD5sum: 20a122e112000bc7e179a33491314136
 Description: Synchronization engine for Windows Mobile devices
  SyncEngine talks to a Windows Mobile device through the ActiveSync
  protocol. SyncEngine talks to the device through the connection
@@ -484,10 +484,10 @@ Homepage: http://www.synce.org/
 Priority: optional
 Section: utils
 Filename: pool/main/s/synce-core/synce-tools_0.17-0~bookworm8_amd64.deb
-Size: 55816
-SHA256: c57ec487afac574d31383adaf2aa4c7be1792b1f27edacb5590b2ff800f0fcf7
-SHA1: 44f2fb799aed08e974782aa881100acb832c712d
-MD5sum: 9ebf842cfeb69250c28e45f718a4eed7
+Size: 55808
+SHA256: 70df0234735f187f00ba3e2a6a223d319ca47783bd3ccba319e7b20010669798
+SHA1: e7020dda314a5c57d7479fb85b86ccbbaf7738cf
+MD5sum: 78c3e8f59cd86d3bac3b9dbc7dc138e8
 Description: Make RAPI calls to a Window Mobile device, library tools
  The purpose of the SynCE project is to provide a means of communication with
  a Windows Mobile, or Windows CE, device from a computer running Linux,
