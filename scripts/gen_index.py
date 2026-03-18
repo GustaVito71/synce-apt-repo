@@ -71,8 +71,9 @@ th{{color:#9cdcfe;border-bottom:1px solid #444}}tr:hover td{{background:#2d2d2d}
 <pre># 1. Importar la clave GPG
 wget -qO- {REPO_URL}/public.key | sudo tee /etc/apt/trusted.gpg.d/synce.asc
 
-# 2. Agregar el repositorio (reemplazar CODENAME por bookworm, trixie, etc.)
-echo "deb {REPO_URL} CODENAME main" | sudo tee /etc/apt/sources.list.d/synce.list
+# 2. Agregar el repositorio (requiere lsb-release: sudo apt install lsb-release)
+echo "deb {REPO_URL} $(lsb_release -sc 2>/dev/null) main" \\
+  | sudo tee /etc/apt/sources.list.d/synce.list
 
 # 3. Actualizar e instalar
 sudo apt update
