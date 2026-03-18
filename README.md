@@ -9,8 +9,8 @@ Repositorio APT para los paquetes SynCE Legacy portados a Debian 12 Bookworm.
 wget -qO- https://GustaVito71.github.io/synce-apt-repo/public.key \
   | sudo tee /etc/apt/trusted.gpg.d/synce.asc
 
-# 2. Agregar el repositorio
-echo "deb https://GustaVito71.github.io/synce-apt-repo bookworm main" \
+# 2. Agregar el repositorio (requiere lsb-release: sudo apt install lsb-release)
+echo "deb https://GustaVito71.github.io/synce-apt-repo $(lsb_release -sc 2>/dev/null) main" \
   | sudo tee /etc/apt/sources.list.d/synce.list
 
 # 3. Actualizar e instalar
